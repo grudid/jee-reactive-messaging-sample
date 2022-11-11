@@ -1,0 +1,42 @@
+= Sample project
+
+Use the following commands to start the server.
+
+[source,bash]
+----
+mvn clean
+mvn install
+mvn liberty:dev
+----
+
+To stop the server use:
+[source,bash]
+----
+mvn liberty:stop
+----
+
+== Successful example
+
+Open `com.sample.Bar` and use field injection as follows.
+
+
+[source,java]
+----
+@Inject
+private Foo foo;
+----
+
+You will see timestamps printed to console each two seconds.
+
+== Failing example
+
+Open `com.sample.Bar` and use constructor injection as follows.
+
+[source,java]
+----
+@Inject
+public Bar(Foo foo) {
+}
+----
+
+You will find exceptions in `\target\liberty\wlp\usr\servers\defaultServer\logs\messages.log`
